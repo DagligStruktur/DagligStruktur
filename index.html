@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Daglig Struktur – Maler for Notion, Excel, Canva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset og grunnleggende */
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        background-color: #f4f4f4;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      /* Navigasjon */
+      nav {
+        background-color: #00904e;
+        color: white;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      nav .nav-links {
+        display: flex;
+        gap: 25px;
+        font-weight: 700;
+        font-size: 16px;
+      }
+
+      nav .nav-links a {
+        color: white;
+        text-decoration: none;
+        transition: opacity 0.3s;
+      }
+
+      nav .nav-links a:hover {
+        opacity: 0.75;
+      }
+
+      nav .cart-icon {
+        cursor: pointer;
+        font-size: 24px;
+        position: relative;
+      }
+
+      nav .cart-count {
+        position: absolute;
+        top: -6px;
+        right: -10px;
+        background-color: #f44336;
+        color: white;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 2px 6px;
+        border-radius: 50%;
+        display: none; /* Skjult nå */
+      }
+
+      /* Hovedinnhold */
+      main {
+        flex-grow: 1;
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        color: #00904e;
+        margin-bottom: 10px;
+      }
+
+      p.lead {
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        max-width: 700px;
+      }
+
+      /* Eksempelseksjon med bilder */
+      .examples {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+
+      .example-card {
+        background: white;
+        border-radius: 12px;
+        padding: 15px;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.2s;
+        cursor: pointer;
+      }
+
+      .example-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .example-card img {
+        max-width: 100%;
+        border-radius: 8px;
+        margin-bottom: 12px;
+      }
+
+      .example-card h3 {
+        margin: 0 0 8px;
+        color: #007a38;
+      }
+
+      .example-card p {
+        font-size: 0.95rem;
+        color: #555;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #00904e;
+        color: white;
+        text-align: center;
+        padding: 18px 20px;
+        margin-top: auto;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-links">
+        <a href="index.html">Startside</a>
+        <a href="produkter.html">Produkter</a>
+        <a href="om-meg.html">Om meg</a>
+      </div>
+      <div class="cart-icon" title="Handlekurv">
+        🛒
+        <div class="cart-count" id="cart-count">0</div>
+      </div>
+    </nav>
+
+    <main>
+      <h1>Velkommen til DagligStruktur</h1>
+      <p class="lead">
+        Din butikk for smarte og stilrene maler til Notion, Excel, Canva,
+        Obsidian og flere apper. Gjør hverdagen enklere med ferdige maler som
+        sparer tid og gir oversikt.
+      </p>
+
+      <section class="examples" aria-label="Eksempelmaler">
+        <div
+          class="example-card"
+          onclick="location.href='produkter.html#notion'"
+        >
+          <img
+            src="https://via.placeholder.com/300x180.png?text=Notion+maler"
+            alt="Notion maler eksempel"
+          />
+          <h3>Notion-maler</h3>
+          <p>
+            Organiser prosjektene dine og hold oversikt med ferdige
+            Notion-maler.
+          </p>
+        </div>
+
+        <div
+          class="example-card"
+          onclick="location.href='produkter.html#excel'"
+        >
+          <img
+            src="https://via.placeholder.com/300x180.png?text=Excel+maler"
+            alt="Excel maler eksempel"
+          />
+          <h3>Excel-maler</h3>
+          <p>
+            Regneark som gjør budsjettering, planlegging og analyser enklere.
+          </p>
+        </div>
+
+        <div
+          class="example-card"
+          onclick="location.href='produkter.html#canva'"
+        >
+          <img
+            src="https://via.placeholder.com/300x180.png?text=Canva+maler"
+            alt="Canva maler eksempel"
+          />
+          <h3>Canva-maler</h3>
+          <p>
+            Design ferdige grafiske maler til sosiale medier, presentasjoner og
+            mer.
+          </p>
+        </div>
+
+        <div
+          class="example-card"
+          onclick="location.href='produkter.html#obsidian'"
+        >
+          <img
+            src="https://via.placeholder.com/300x180.png?text=Obsidian+maler"
+            alt="Obsidian maler eksempel"
+          />
+          <h3>Obsidian-maler</h3>
+          <p>
+            Effektive maler for notattaking og kunnskapsorganisering i Obsidian.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>&copy; 2025 DagligStruktur – Alle rettigheter reservert.</footer>
+  </body>
+</html>
