@@ -29,6 +29,22 @@
         text-decoration: none;
         margin-left: 1.5rem;
         font-weight: 600;
+        position: relative;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        left: 0;
+        bottom: -4px;
+        background-color: white;
+        transition: width 0.3s ease;
+      }
+
+      nav a:hover::after {
+        width: 100%;
       }
 
       .logo a {
@@ -165,7 +181,7 @@
         <div class="fact-box">
           <h3>📍 Litt om meg</h3>
           <p>
-            Jeg bor i Norge, studerer [fyll inn] og bruker fritiden min på å
+            Jeg bor i Norge, studerer datateknologi og bruker fritiden min på å
             organisere, designe, og drikke altfor mye kaffe ☕
           </p>
         </div>
