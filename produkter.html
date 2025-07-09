@@ -98,9 +98,12 @@
 
       .product-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-auto-rows: auto;
         gap: 1.5rem;
         margin-top: 1rem;
+        max-height: calc((300px + 1.5rem) * 2); /* To rader + gap */
+        overflow-y: auto;
       }
 
       .product-card {
@@ -156,22 +159,34 @@
         <h2>Notion-maler</h2>
         <div class="product-grid">
           <a href="prosjektplanlegger.html" class="product-card">
-            <img src="https://via.placeholder.com/300x180.png?text=Prosjektplanlegger" alt="Prosjektplanlegger" />
+            <img
+              src="https://via.placeholder.com/300x180.png?text=Prosjektplanlegger"
+              alt="Prosjektplanlegger"
+            />
             <h3>Prosjektplanlegger</h3>
             <p>Planlegg og gjennomfør prosjekter effektivt.</p>
           </a>
           <a href="studieoversikt.html" class="product-card">
-            <img src="https://via.placeholder.com/300x180.png?text=Studieoversikt" alt="Studieoversikt" />
+            <img
+              src="https://via.placeholder.com/300x180.png?text=Studieoversikt"
+              alt="Studieoversikt"
+            />
             <h3>Studieoversikt</h3>
             <p>Hold styr på fag, innleveringer og eksamener.</p>
           </a>
           <a href="#" class="product-card">
-            <img src="https://via.placeholder.com/300x180.png?text=Møteplan" alt="Møteplan" />
+            <img
+              src="https://via.placeholder.com/300x180.png?text=Møteplan"
+              alt="Møteplan"
+            />
             <h3>Møteplan</h3>
             <p>Få oversikt over møter og oppfølging.</p>
           </a>
           <a href="#" class="product-card">
-            <img src="https://via.placeholder.com/300x180.png?text=Måloversikt" alt="Måloversikt" />
+            <img
+              src="https://via.placeholder.com/300x180.png?text=Måloversikt"
+              alt="Måloversikt"
+            />
             <h3>Måloversikt</h3>
             <p>Sett og følg opp dine mål enkelt.</p>
           </a>
@@ -182,12 +197,18 @@
         <h2>OneNote-maler</h2>
         <div class="product-grid">
           <a href="forelesningsnotater.html" class="product-card">
-            <img src="https://via.placeholder.com/300x180.png?text=Forelesningsnotater" alt="Forelesningsnotater" />
+            <img
+              src="https://via.placeholder.com/300x180.png?text=Forelesningsnotater"
+              alt="Forelesningsnotater"
+            />
             <h3>Forelesningsnotater</h3>
             <p>Organiser notater og oppsummeringer enkelt.</p>
           </a>
           <a href="#" class="product-card">
-            <img src="https://via.placeholder.com/300x180.png?text=Oppgaveplan" alt="Oppgaveplan" />
+            <img
+              src="https://via.placeholder.com/300x180.png?text=Oppgaveplan"
+              alt="Oppgaveplan"
+            />
             <h3>Oppgaveplan</h3>
             <p>Få kontroll over innleveringer og frister.</p>
           </a>
@@ -198,12 +219,18 @@
         <h2>Excel-maler</h2>
         <div class="product-grid">
           <a href="budsjettmal.html" class="product-card">
-            <img src="https://via.placeholder.com/300x180.png?text=Budsjettmal" alt="Budsjettmal" />
+            <img
+              src="https://via.placeholder.com/300x180.png?text=Budsjettmal"
+              alt="Budsjettmal"
+            />
             <h3>Budsjettmal</h3>
             <p>Få oversikt over inntekter og utgifter.</p>
           </a>
           <a href="#" class="product-card">
-            <img src="https://via.placeholder.com/300x180.png?text=Treningslogg" alt="Treningslogg" />
+            <img
+              src="https://via.placeholder.com/300x180.png?text=Treningslogg"
+              alt="Treningslogg"
+            />
             <h3>Treningslogg</h3>
             <p>Hold oversikt over trening og progresjon.</p>
           </a>
@@ -214,12 +241,18 @@
         <h2>Canva-maler</h2>
         <div class="product-grid">
           <a href="instagramplanlegger.html" class="product-card">
-            <img src="https://via.placeholder.com/300x180.png?text=Instagram+Innhold" alt="Instagram Innhold" />
+            <img
+              src="https://via.placeholder.com/300x180.png?text=Instagram+Innhold"
+              alt="Instagram Innhold"
+            />
             <h3>Instagram-innholdsplan</h3>
             <p>Design og planlegg innlegg for sosiale medier.</p>
           </a>
           <a href="#" class="product-card">
-            <img src="https://via.placeholder.com/300x180.png?text=CV-design" alt="CV-design" />
+            <img
+              src="https://via.placeholder.com/300x180.png?text=CV-design"
+              alt="CV-design"
+            />
             <h3>CV-mal</h3>
             <p>Lag en stilren og profesjonell CV.</p>
           </a>
