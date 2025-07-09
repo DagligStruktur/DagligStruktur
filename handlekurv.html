@@ -3,53 +3,104 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Handlekurv – StudieMester</title>
+    <title>Handlekurv – DagligStruktur</title>
     <style>
       body {
         font-family: sans-serif;
-        margin: 2rem;
+        margin: 0;
+        padding: 0;
         background: #f8f8f8;
+        color: #222;
       }
-      nav {
+
+      header {
         background: #004080;
-        padding: 1rem 0;
-        margin-bottom: 2rem;
-      }
-      .container {
-        max-width: 900px; /* Samme bredde som i produkter.html */
-        margin: 0 auto;
-        padding: 0 1rem;
+        color: white;
+        padding: 1rem 2rem;
         display: flex;
-        justify-content: flex-start; /* Eller center hvis du vil sentrere */
-        gap: 2rem;
-        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        flex-wrap: wrap;
       }
+
+      .logo a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: white;
+      }
+
+      nav {
+        display: flex;
+        gap: 1.5rem;
+      }
+
       nav a {
         color: white;
         text-decoration: none;
         font-weight: 600;
-        padding: 0.25rem 0;
-        border-bottom: 2px solid transparent;
-        transition: border-color 0.3s ease;
       }
+
       nav a:hover {
-        border-bottom: 2px solid #ffd700; /* Gullfarge på hover for å matche stil */
+        text-decoration: underline;
       }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+        nav {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          background: #004080;
+          padding: 1rem 0;
+        }
+
+        nav.active {
+          display: flex;
+        }
+
+        nav a {
+          padding: 0.5rem 2rem;
+        }
+      }
+
+      /* Handlekurv-spesifikk styling */
+      .container {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+
       table {
         border-collapse: collapse;
         width: 100%;
         background: white;
       }
+
       th,
       td {
         padding: 0.75rem;
         border: 1px solid #ccc;
         text-align: left;
       }
+
       th {
         background: #004080;
         color: white;
       }
+
       .total {
         font-weight: 700;
       }
@@ -69,12 +120,38 @@
     </style>
   </head>
   <body>
-    <nav>
-      <div class="container">
-        <a href="index.html">Startside</a>
+    <header>
+      <div class="logo">
+        <a href="index.html">DagligStruktur</a>
+      </div>
+      <div class="menu-toggle" id="menuToggle">☰</div>
+      <nav id="navbar">
+        <a href="index.html">Startmeny</a>
         <a href="produkter.html">Produkter</a>
         <a href="handlekurv.html">Handlekurv</a>
         <a href="om-meg.html">Om meg</a>
+      </nav>
+    </header>
+    <nav>
+      <div
+        class="container"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        "
+      >
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Startside</a>
+          <a href="produkter.html">Produkter</a>
+          <a href="handlekurv.html">Handlekurv</a>
+          <a href="om-meg.html">Om meg</a>
+        </div>
       </div>
     </nav>
 
@@ -107,6 +184,14 @@
     </div>
 
     <script>
+      // Toggle meny på mobil
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
       function visHandlekurv() {
         const tbody = document.querySelector("#handlekurvTabell tbody");
         tbody.innerHTML = ""; // tøm tabellen først
