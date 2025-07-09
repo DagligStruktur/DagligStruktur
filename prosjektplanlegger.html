@@ -3,29 +3,85 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Prosjektplanlegger – StudieMester</title>
+    <title>Prosjektplanlegger – DagligStruktur</title>
     <style>
       body {
         font-family: sans-serif;
         margin: 0;
-        background-color: #f9f9f9;
+        padding: 0;
+        background: #f8f8f8;
+        color: #222;
       }
-      /* Toppmeny */
-      nav {
-        background-color: #004080;
-        padding: 1rem;
+
+      header {
+        background: #004080;
+        color: white;
+        padding: 1rem 2rem;
         display: flex;
-        gap: 2rem;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        flex-wrap: wrap;
       }
-      nav a {
+
+      .logo a {
         color: white;
         text-decoration: none;
         font-weight: bold;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
       }
+
+      .menu-toggle {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: white;
+      }
+
+      nav {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
       nav a:hover {
         text-decoration: underline;
       }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+        nav {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          background: #004080;
+          padding: 1rem 0;
+        }
+
+        nav.active {
+          display: flex;
+        }
+
+        nav a {
+          padding: 0.5rem 2rem;
+        }
+      }
+
+      main {
+        padding: 2rem;
+        max-width: 1200px;
+        margin: auto;
+      }
+
       .container {
         max-width: 900px;
         margin: 2rem auto;
@@ -70,12 +126,18 @@
     </style>
   </head>
   <body>
-    <nav>
-      <a href="index.html">Startside</a>
-      <a href="produkter.html">Produkter</a>
-      <a href="handlekurv.html">Handlekurv</a>
-      <a href="ommeg.html">Om meg</a>
-    </nav>
+    <header>
+      <div class="logo">
+        <a href="index.html">DagligStruktur</a>
+      </div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <nav id="navbar">
+        <a href="index.html">Startmeny</a>
+        <a href="produkter.html">Produkter</a>
+        <a href="handlekurv.html">Handlekurv</a>
+        <a href="om-meg.html">Om meg</a>
+      </nav>
+    </header>
 
     <div class="container">
       <h1>Prosjektplanlegger</h1>
@@ -101,6 +163,10 @@
     </div>
 
     <script>
+      function toggleMenu() {
+        const nav = document.getElementById("navbar");
+        nav.classList.toggle("active");
+      }
       const addToCartBtn = document.getElementById("addToCartBtn");
 
       const produkt = {
