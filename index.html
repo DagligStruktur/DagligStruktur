@@ -22,6 +22,14 @@
         position: sticky;
         top: 0;
         z-index: 10;
+        flex-wrap: wrap;
+      }
+
+      .logo a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2rem;
       }
 
       nav a {
@@ -31,11 +39,35 @@
         font-weight: 600;
       }
 
-      .logo a {
+      .menu-toggle {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
         color: white;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 1.2rem;
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          background-color: #004080;
+          width: 100%;
+          text-align: center;
+          padding: 1rem 0;
+        }
+
+        .nav-links a {
+          margin: 0.7rem 0;
+          display: block;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
       }
 
       main {
@@ -147,7 +179,8 @@
       <div class="logo">
         <a href="index.html">DagligStruktur</a>
       </div>
-      <nav>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <nav class="nav-links" id="navLinks">
         <a href="index.html">Startmeny</a>
         <a href="produkter.html">Produkter</a>
         <a href="handlekurv.html">Handlekurv</a>
@@ -231,5 +264,12 @@
     </main>
 
     <footer>© 2025 DagligStruktur – Maler for en enklere hverdag</footer>
+
+    <script>
+      function toggleMenu() {
+        const nav = document.getElementById("navLinks");
+        nav.classList.toggle("active");
+      }
+    </script>
   </body>
 </html>
