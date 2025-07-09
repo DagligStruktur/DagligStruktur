@@ -12,7 +12,6 @@
         background: #f8f8f8;
         color: #222;
       }
-
       header {
         background: #004080;
         color: white;
@@ -23,86 +22,38 @@
         position: sticky;
         top: 0;
         z-index: 100;
-        flex-wrap: wrap;
       }
-
-      .logo a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 1.2rem;
-      }
-
-      .menu-toggle {
-        display: none;
-        font-size: 1.5rem;
-        cursor: pointer;
-      }
-
-      nav {
-        display: flex;
-        gap: 1.5rem;
-      }
-
       nav a {
         color: white;
         text-decoration: none;
+        margin-left: 1.5rem;
         font-weight: 600;
       }
-
       nav a:hover {
         text-decoration: underline;
       }
-
-      @media (max-width: 768px) {
-        .menu-toggle {
-          display: block;
-          color: white;
-        }
-
-        nav {
-          display: none;
-          flex-direction: column;
-          width: 100%;
-          background: #004080;
-          padding: 1rem 0;
-        }
-
-        nav.active {
-          display: flex;
-        }
-
-        nav a {
-          padding: 0.5rem 2rem;
-        }
-      }
-
       main {
         padding: 2rem;
         max-width: 1200px;
         margin: auto;
       }
-
       h1 {
         font-size: 2rem;
         margin-bottom: 1rem;
         text-align: center;
       }
-
       h2 {
         font-size: 1.5rem;
         margin-top: 3rem;
         border-bottom: 2px solid #ccc;
         padding-bottom: 0.5rem;
       }
-
       .product-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
         gap: 1.5rem;
         margin-top: 1rem;
       }
-
       .product-card {
         background: white;
         border-radius: 10px;
@@ -112,36 +63,40 @@
         color: inherit;
         transition: transform 0.2s ease;
       }
-
       .product-card:hover {
         transform: scale(1.02);
       }
-
       .product-card img {
         width: 100%;
         border-radius: 8px;
         margin-bottom: 0.75rem;
       }
-
       .product-card h3 {
         margin: 0 0 0.5rem 0;
         font-size: 1.1rem;
       }
-
       .product-card p {
         margin: 0;
         font-size: 0.95rem;
         color: #555;
+      }
+      @media (max-width: 600px) {
+        .product-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
       }
     </style>
   </head>
   <body>
     <header>
       <div class="logo">
-        <a href="index.html">DagligStruktur</a>
+        <a
+          href="index.html"
+          style="color: white; text-decoration: none; font-weight: bold; font-size: 1.2rem;"
+          >DagligStruktur</a
+        >
       </div>
-      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-      <nav id="navbar">
+      <nav>
         <a href="index.html">Startmeny</a>
         <a href="produkter.html">Produkter</a>
         <a href="handlekurv.html">Handlekurv</a>
@@ -152,76 +107,58 @@
     <main>
       <h1>Utforsk våre maler</h1>
 
+      <!-- Notion -->
       <section>
         <h2>Notion-maler</h2>
         <div class="product-grid">
           <a href="prosjektplanlegger.html" class="product-card">
-            <img
-              src="https://via.placeholder.com/300x180.png?text=Prosjektplanlegger"
-              alt="Prosjektplanlegger"
-            />
+            <img src="https://via.placeholder.com/300x180.png?text=Prosjektplanlegger" alt="Prosjektplanlegger" />
             <h3>Prosjektplanlegger</h3>
             <p>Planlegg og gjennomfør prosjekter effektivt.</p>
           </a>
           <a href="studieoversikt.html" class="product-card">
-            <img
-              src="https://via.placeholder.com/300x180.png?text=Studieoversikt"
-              alt="Studieoversikt"
-            />
+            <img src="https://via.placeholder.com/300x180.png?text=Studieoversikt" alt="Studieoversikt" />
             <h3>Studieoversikt</h3>
             <p>Hold styr på fag, innleveringer og eksamener.</p>
           </a>
         </div>
       </section>
 
+      <!-- OneNote -->
       <section>
         <h2>OneNote-maler</h2>
         <div class="product-grid">
           <a href="forelesningsnotater.html" class="product-card">
-            <img
-              src="https://via.placeholder.com/300x180.png?text=Forelesningsnotater"
-              alt="Forelesningsnotater"
-            />
+            <img src="https://via.placeholder.com/300x180.png?text=Forelesningsnotater" alt="Forelesningsnotater" />
             <h3>Forelesningsnotater</h3>
             <p>Organiser notater og oppsummeringer enkelt.</p>
           </a>
         </div>
       </section>
 
+      <!-- Excel -->
       <section>
         <h2>Excel-maler</h2>
         <div class="product-grid">
           <a href="budsjettmal.html" class="product-card">
-            <img
-              src="https://via.placeholder.com/300x180.png?text=Budsjettmal"
-              alt="Budsjettmal"
-            />
+            <img src="https://via.placeholder.com/300x180.png?text=Budsjettmal" alt="Budsjettmal" />
             <h3>Budsjettmal</h3>
             <p>Få oversikt over inntekter og utgifter.</p>
           </a>
         </div>
       </section>
 
+      <!-- Canva -->
       <section>
         <h2>Canva-maler</h2>
         <div class="product-grid">
           <a href="instagramplanlegger.html" class="product-card">
-            <img
-              src="https://via.placeholder.com/300x180.png?text=Instagram+Innhold"
-              alt="Instagram Innhold"
-            />
+            <img src="https://via.placeholder.com/300x180.png?text=Instagram+Innhold" alt="Instagram Innhold" />
             <h3>Instagram-innholdsplan</h3>
             <p>Design og planlegg innlegg for sosiale medier.</p>
           </a>
         </div>
       </section>
     </main>
-
-    <script>
-      function toggleMenu() {
-        const nav = document.getElementById("navbar");
-        nav.classList.toggle("active");
-      }
-    </script>
   </body>
 </html>
