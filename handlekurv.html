@@ -104,6 +104,7 @@
       .total {
         font-weight: 700;
       }
+
       button {
         background: #004080;
         color: white;
@@ -114,6 +115,7 @@
         margin-top: 1rem;
         align-self: flex-start;
       }
+
       button:hover {
         background: #003060;
       }
@@ -132,28 +134,6 @@
         <a href="om-meg.html">Om meg</a>
       </nav>
     </header>
-    <nav>
-      <div
-        class="container"
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        "
-      >
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="nav-links" id="navLinks">
-          <a href="index.html">Startside</a>
-          <a href="produkter.html">Produkter</a>
-          <a href="handlekurv.html">Handlekurv</a>
-          <a href="om-meg.html">Om meg</a>
-        </div>
-      </div>
-    </nav>
 
     <div class="container">
       <h1>Handlekurv</h1>
@@ -169,7 +149,7 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Produkter her -->
+          <!-- Produkter legges inn her via JavaScript -->
         </tbody>
         <tfoot>
           <tr>
@@ -184,17 +164,16 @@
     </div>
 
     <script>
-      // Toggle meny på mobil
-      const hamburger = document.getElementById("hamburger");
-      const navLinks = document.getElementById("navLinks");
-
-      hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
+      // Aktiver hamburgermeny
+      document
+        .getElementById("menuToggle")
+        .addEventListener("click", function () {
+          document.getElementById("navbar").classList.toggle("active");
+        });
 
       function visHandlekurv() {
         const tbody = document.querySelector("#handlekurvTabell tbody");
-        tbody.innerHTML = ""; // tøm tabellen først
+        tbody.innerHTML = ""; // tøm tabellen
 
         let handlekurv = JSON.parse(localStorage.getItem("handlekurv")) || [];
         let total = 0;
@@ -226,7 +205,6 @@
             if (handlekurv[index].antall > 1) {
               handlekurv[index].antall -= 1;
             } else {
-              // Fjern produktet hvis antall går til 0
               handlekurv.splice(index, 1);
             }
             localStorage.setItem("handlekurv", JSON.stringify(handlekurv));
@@ -237,9 +215,9 @@
 
       visHandlekurv();
 
-      // Knapp for å gå til kassen
+      // Gå til kassen
       document.getElementById("tilKasse").addEventListener("click", () => {
-        window.location.href = "kasse.html"; // Endre til riktig side for kassen
+        window.location.href = "kasse.html";
       });
     </script>
   </body>
