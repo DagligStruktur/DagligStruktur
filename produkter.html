@@ -98,12 +98,9 @@
 
       .product-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        grid-auto-rows: auto;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 1.5rem;
         margin-top: 1rem;
-        max-height: calc((300px + 1.5rem) * 2); /* To rader + gap */
-        overflow-y: auto;
       }
 
       .product-card {
