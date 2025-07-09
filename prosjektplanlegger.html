@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prosjektplanlegger – StudieMester</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        background-color: #f9f9f9;
+      }
+      /* Toppmeny */
+      nav {
+        background-color: #004080;
+        padding: 1rem;
+        display: flex;
+        gap: 2rem;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      .container {
+        max-width: 900px;
+        margin: 2rem auto;
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #004080;
+      }
+      .bilder {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .bilder img {
+        width: 200px;
+        height: auto;
+        border-radius: 6px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+      }
+      .pris {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #0066cc;
+      }
+      button {
+        background-color: #004080;
+        color: white;
+        border: none;
+        padding: 0.8rem 1.6rem;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #003060;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">Startside</a>
+      <a href="produkter.html">Produkter</a>
+      <a href="handlekurv.html">Handlekurv</a>
+      <a href="ommeg.html">Om meg</a>
+    </nav>
+
+    <div class="container">
+      <h1>Prosjektplanlegger</h1>
+
+      <div class="bilder">
+        <img
+          src="https://via.placeholder.com/400x300?text=Prosjektplanlegger+1"
+          alt="Prosjektplanlegger bilde 1"
+        />
+        <img
+          src="https://via.placeholder.com/400x300?text=Prosjektplanlegger+2"
+          alt="Prosjektplanlegger bilde 2"
+        />
+        <img
+          src="https://via.placeholder.com/400x300?text=Prosjektplanlegger+3"
+          alt="Prosjektplanlegger bilde 3"
+        />
+      </div>
+
+      <div class="pris">Pris: 30,- NOK</div>
+
+      <button id="addToCartBtn">Legg til i handlekurv</button>
+    </div>
+
+    <script>
+      const addToCartBtn = document.getElementById("addToCartBtn");
+
+      const produkt = {
+        id: "prosjektplanlegger",
+        navn: "Prosjektplanlegger",
+        pris: 30,
+        antall: 1,
+      };
+
+      addToCartBtn.addEventListener("click", () => {
+        let handlekurv = JSON.parse(localStorage.getItem("handlekurv")) || [];
+
+        const eksisterendeProdukt = handlekurv.find((p) => p.id === produkt.id);
+
+        if (eksisterendeProdukt) {
+          eksisterendeProdukt.antall += 1;
+        } else {
+          handlekurv.push(produkt);
+        }
+
+        localStorage.setItem("handlekurv", JSON.stringify(handlekurv));
+
+        alert(`${produkt.navn} er lagt til i handlekurven!`);
+      });
+    </script>
+  </body>
+</html>
