@@ -21,30 +21,8 @@
         align-items: center;
         position: sticky;
         top: 0;
-        z-index: 10;
-      }
-
-      nav a {
-        color: white;
-        text-decoration: none;
-        margin-left: 1.5rem;
-        font-weight: 600;
-        position: relative;
-      }
-
-      nav a::after {
-        content: "";
-        position: absolute;
-        width: 0%;
-        height: 2px;
-        left: 0;
-        bottom: -4px;
-        background-color: white;
-        transition: width 0.3s ease;
-      }
-
-      nav a:hover::after {
-        width: 100%;
+        z-index: 100;
+        flex-wrap: wrap;
       }
 
       .logo a {
@@ -54,10 +32,54 @@
         font-size: 1.2rem;
       }
 
+      .menu-toggle {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: white;
+      }
+
+      nav {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+
+        nav {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          background: #004080;
+          padding: 1rem 0;
+        }
+
+        nav.active {
+          display: flex;
+        }
+
+        nav a {
+          padding: 0.5rem 2rem;
+        }
+      }
+
       main {
-        max-width: 1000px;
-        margin: auto;
         padding: 2rem;
+        max-width: 1200px;
+        margin: auto;
       }
 
       .about-section {
@@ -131,7 +153,8 @@
       <div class="logo">
         <a href="index.html">DagligStruktur</a>
       </div>
-      <nav>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <nav id="navbar">
         <a href="index.html">Startmeny</a>
         <a href="produkter.html">Produkter</a>
         <a href="handlekurv.html">Handlekurv</a>
@@ -189,5 +212,12 @@
     </main>
 
     <footer>© 2025 DagligStruktur – Laget med kjærlighet og struktur</footer>
+
+    <script>
+      function toggleMenu() {
+        const nav = document.getElementById("navbar");
+        nav.classList.toggle("active");
+      }
+    </script>
   </body>
 </html>
