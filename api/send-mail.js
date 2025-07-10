@@ -27,7 +27,7 @@ module.exports = async (req, res) => {
     attachments: [
       {
         filename: `${produkt}.pdf`,
-        path: `${__dirname}/filer/${produkt}.pdf`,
+        path: `${__dirname}/produkter/${produkt}.pdf`,
       },
     ],
   };
