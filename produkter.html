@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produkter – DinStruktur</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f8f8f8;
+        color: #222;
+      }
+
+      header {
+        background: #ffe0f3;
+        color: white;
+        text-shadow: 2px 2px 4px #000000;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        flex-wrap: wrap;
+      }
+
+      .logo a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: white;
+      }
+
+      nav {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+
+        nav {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          background: #ffe0f3;
+          padding: 1rem 0;
+        }
+
+        nav.active {
+          display: flex;
+        }
+
+        nav a {
+          padding: 0.5rem 2rem;
+        }
+      }
+
+      main {
+        padding: 2rem;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 3rem;
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 0.5rem;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .product-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.2s ease;
+      }
+
+      .product-card:hover {
+        transform: scale(1.02);
+      }
+
+      .product-card img {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 0.75rem;
+      }
+
+      .product-card h3 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.1rem;
+      }
+
+      .product-card p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html">DinStruktur</a>
+      </div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <nav id="navbar">
+        <a href="index.html">Startmeny</a>
+        <a href="produkter.html">Produkter</a>
+        <a href="handlekurv.html">Handlekurv</a>
+        <a href="om-meg.html">Om meg</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Utforsk våre maler</h1>
+
+      <section>
+        <h2>Notion-maler</h2>
+        <div class="product-grid">
+          <a href="ukentlig-kalender.html" class="product-card">
+            <img src="bilder/Ukentlig kalender.png" />
+            <h3>Ukentlig kalender</h3>
+            <p>Planlegg og gjennomfør uken effektivt.</p>
+          </a>
+          <a href="studieoversikt.html" class="product-card">
+            <img
+              src="https://via.placeholder.com/300x180.png?text=Studieoversikt"
+            />
+            <h3>Studieoversikt</h3>
+            <p>Hold styr på fag, innleveringer og eksamener.</p>
+          </a>
+          <a href="#" class="product-card">
+            <img src="https://via.placeholder.com/300x180.png?text=Møteplan" />
+            <h3>Møteplan</h3>
+            <p>Få oversikt over møter og oppfølging.</p>
+          </a>
+          <a href="#" class="product-card">
+            <img
+              src="https://via.placeholder.com/300x180.png?text=Måloversikt"
+            />
+            <h3>Måloversikt</h3>
+            <p>Sett og følg opp dine mål enkelt.</p>
+          </a>
+        </div>
+      </section>
+
+      <section>
+        <h2>OneNote-maler</h2>
+        <div class="product-grid">
+          <a href="forelesningsnotater.html" class="product-card">
+            <img
+              src="https://via.placeholder.com/300x180.png?text=Forelesningsnotater"
+            />
+            <h3>Forelesningsnotater</h3>
+            <p>Organiser notater og oppsummeringer enkelt.</p>
+          </a>
+          <a href="#" class="product-card">
+            <img
+              src="https://via.placeholder.com/300x180.png?text=Oppgaveplan"
+            />
+            <h3>Oppgaveplan</h3>
+            <p>Få kontroll over innleveringer og frister.</p>
+          </a>
+        </div>
+      </section>
+
+      <section>
+        <h2>Excel-maler</h2>
+        <div class="product-grid">
+          <a href="budsjettmal.html" class="product-card">
+            <img
+              src="https://via.placeholder.com/300x180.png?text=Budsjettmal"
+            />
+            <h3>Budsjettmal</h3>
+            <p>Få oversikt over inntekter og utgifter.</p>
+          </a>
+          <a href="#" class="product-card">
+            <img
+              src="https://via.placeholder.com/300x180.png?text=Treningslogg"
+            />
+            <h3>Treningslogg</h3>
+            <p>Hold oversikt over trening og progresjon.</p>
+          </a>
+        </div>
+      </section>
+
+      <section>
+        <h2>Canva-maler</h2>
+        <div class="product-grid">
+          <a href="instagramplanlegger.html" class="product-card">
+            <img
+              src="https://via.placeholder.com/300x180.png?text=Instagram+Innhold"
+            />
+            <h3>Instagram-innholdsplan</h3>
+            <p>Design og planlegg innlegg for sosiale medier.</p>
+          </a>
+          <a href="#" class="product-card">
+            <img src="https://via.placeholder.com/300x180.png?text=CV-design" />
+            <h3>CV-mal</h3>
+            <p>Lag en stilren og profesjonell CV.</p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      function toggleMenu() {
+        const nav = document.getElementById("navbar");
+        nav.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>

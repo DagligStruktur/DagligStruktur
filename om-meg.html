@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Om meg – DinStruktur</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        background: #f9f9f9;
+        color: #222;
+      }
+
+      header {
+        background: #ffe0f3;
+        color: white;
+        text-shadow: 2px 2px 4px #000000;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        flex-wrap: wrap;
+      }
+
+      .logo a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: white;
+      }
+
+      nav {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+
+        nav {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          background: #ffe0f3;
+          padding: 1rem 0;
+        }
+
+        nav.active {
+          display: flex;
+        }
+
+        nav a {
+          padding: 0.5rem 2rem;
+        }
+      }
+
+      main {
+        padding: 2rem;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .about-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .about-section img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-section h1 {
+        font-size: 2.2rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .about-section p {
+        font-size: 1.1rem;
+        max-width: 700px;
+        color: #444;
+      }
+
+      .facts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .fact-box {
+        background-color: #fff;
+        border-radius: 14px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+        text-align: left;
+        transition: transform 0.2s ease;
+      }
+
+      .fact-box:hover {
+        transform: translateY(-5px);
+      }
+
+      .fact-box h3 {
+        margin-top: 0;
+        font-size: 1.2rem;
+        color: #004080;
+      }
+
+      .fact-box p {
+        font-size: 1rem;
+        color: #555;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+        color: #666;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html">DinStruktur</a>
+      </div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <nav id="navbar">
+        <a href="index.html">Startmeny</a>
+        <a href="produkter.html">Produkter</a>
+        <a href="handlekurv.html">Handlekurv</a>
+        <a href="om-meg.html">Om meg</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="about-section">
+        <img src="bilder/last ned.jpg" />
+        <h1>DinStruktur</h1>
+        <p>
+          Jeg brenner for produktivitet og elsker å lage digitale systemer som
+          gjør hverdagen enklere. DinStruktur er mitt lille hjørne av internett
+          hvor jeg samler nyttige maler, verktøy og tips for bedre struktur og
+          kontroll.
+        </p>
+      </section>
+
+      <section class="facts-grid">
+        <div class="fact-box">
+          <h3>💡 Bakgrunnen for nettsiden</h3>
+          <p>
+            Jeg startet DinStruktur etter at jeg selv slet med å holde oversikt
+            i en hektisk studiehverdag. Nå lager jeg verktøy jeg selv skulle
+            ønske jeg hadde!
+          </p>
+        </div>
+
+        <div class="fact-box">
+          <h3>📚 Hva du finner her</h3>
+          <p>
+            Notion-maler, Excel-oppsett, OneNote-maler og mer – alt laget med
+            fokus på enkelhet, funksjonalitet og design.
+          </p>
+        </div>
+
+        <div class="fact-box">
+          <h3>🎨 Design og farger</h3>
+          <p>
+            Jeg elsker rolige pastellfarger og prøver å gjøre hvert produkt både
+            estetisk og brukervennlig. Struktur skal være en glede, ikke et
+            stress!
+          </p>
+        </div>
+
+        <div class="fact-box">
+          <h3>📍 Litt om meg</h3>
+          <p>
+            Jeg bor i Norge og bruker fritiden min på å organisere, designe, og
+            drikke altfor mye kaffe ☕
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>© 2025 DinStruktur – Maler for en enklere hverdag</footer>
+
+    <script>
+      function toggleMenu() {
+        const nav = document.getElementById("navbar");
+        nav.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
