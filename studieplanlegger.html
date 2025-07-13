@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Studieplanlegger – DinStruktur</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f8f8f8;
+        color: #222;
+      }
+
+      header {
+        background: #ffe0f3;
+        color: white;
+        text-shadow: 2px 2px 4px #000000;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        flex-wrap: wrap;
+      }
+
+      .logo a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: white;
+      }
+
+      nav {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+        nav {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          background: #ffe0f3;
+          padding: 1rem 0;
+        }
+
+        nav.active {
+          display: flex;
+        }
+
+        nav a {
+          padding: 0.5rem 2rem;
+        }
+      }
+
+      main {
+        padding: 2rem;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 2rem auto;
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #ffe0f3;
+      }
+
+      .karusell {
+        position: relative;
+        max-width: 800px;
+        margin: 2rem auto;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .slides {
+        display: flex;
+        transition: transform 0.4s ease-in-out;
+        width: 100%;
+      }
+
+      .slide {
+        min-width: 100%;
+        display: none;
+        object-fit: contain;
+        max-height: 500px;
+      }
+
+      .slide.aktiv {
+        display: block;
+      }
+
+      .pil {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2rem;
+        background-color: rgba(255, 224, 243, 0.8);
+        color: black;
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        z-index: 10;
+        border-radius: 50%;
+      }
+
+      .venstre {
+        left: 10px;
+      }
+
+      .høyre {
+        right: 10px;
+      }
+
+      .pris {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #ffe0f3;
+      }
+
+      button {
+        background-color: #ffe0f3;
+        color: white;
+        border: none;
+        padding: 0.8rem 1.6rem;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #f18bca;
+      }
+
+      button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html">DinStruktur</a>
+      </div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <nav id="navbar">
+        <a href="index.html">Startmeny</a>
+        <a href="produkter.html">Produkter</a>
+        <a href="handlekurv.html">Handlekurv</a>
+        <a href="om-meg.html">Om meg</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1>Studieplanlegger</h1>
+
+      <div class="karusell">
+        <button class="pil venstre" onclick="endreSlide(-1)">&#10094;</button>
+
+        <div class="slides">
+          <img src="bilder/Studieplanlegger.png" class="slide aktiv" />
+          <img src="bilder/Pc studieplanlegger.png" class="slide aktiv" />
+          <video class="slide" autoplay loop muted>
+            <source src="bilder/Video studieplanlegger.mp4" type="video/mp4" />
+            Nettleseren din støtter ikke video.
+          </video>
+        </div>
+
+        <button class="pil høyre" onclick="endreSlide(1)">&#10095;</button>
+      </div>
+
+      <div class="pris">Pris: 30,- NOK</div>
+
+      <button id="addToCartBtn">Legg til i handlekurv</button>
+    </div>
+
+    <script>
+      function toggleMenu() {
+        const nav = document.getElementById("navbar");
+        nav.classList.toggle("active");
+      }
+
+      const addToCartBtn = document.getElementById("addToCartBtn");
+
+      const produkt = {
+        id: "studieplanlegger",
+        navn: "Studieplanlegger",
+        pris: 30,
+        antall: 1,
+      };
+
+      let handlekurv = JSON.parse(localStorage.getItem("handlekurv")) || [];
+
+      const finnesAllerede = handlekurv.some((p) => p.id === produkt.id);
+
+      if (finnesAllerede) {
+        addToCartBtn.disabled = true;
+        addToCartBtn.textContent = "Allerede i handlekurven";
+      } else {
+        addToCartBtn.addEventListener("click", () => {
+          handlekurv.push(produkt);
+          localStorage.setItem("handlekurv", JSON.stringify(handlekurv));
+          addToCartBtn.disabled = true;
+          addToCartBtn.textContent = "Lagt i handlekurven";
+          alert(`${produkt.navn} er lagt til i handlekurven!`);
+        });
+      }
+
+      let aktivIndeks = 0;
+      const slides = document.querySelectorAll(".slide");
+
+      function visSlide(nyIndeks) {
+        slides[aktivIndeks].classList.remove("aktiv");
+        aktivIndeks = (nyIndeks + slides.length) % slides.length;
+        slides[aktivIndeks].classList.add("aktiv");
+      }
+
+      function endreSlide(retning) {
+        visSlide(aktivIndeks + retning);
+      }
+    </script>
+  </body>
+</html>
