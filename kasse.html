@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mine produkter</title>
+    <script src="https://www.paypal.com/sdk/js?client-id=BAACw7IKL-rS4EvCepngEVd_8BrgRIrWtoNSELN0SG8wZ87a9mXLIGqanoQItDUOCE8Tyl5seoUqJPcbEc&components=hosted-buttons&disable-funding=venmo&currency=NOK"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f9f9f9;
+        padding: 2rem;
+      }
+      .produkt {
+        background: white;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Handlekurv</h1>
+    <div id="produkter-container"></div>
+
+    <script>
+      const produkterContainer = document.getElementById("produkter-container");
+      const handlekurv = JSON.parse(localStorage.getItem("handlekurv")) || [];
+
+      const paypalKnappIds = {
+        "ukentlig kalender": "Q7SWCHAGL9WDN",
+        studieplanlegger: "6ZMAXB8FCTR6N",
+      };
+
+      if (handlekurv.length === 0) {
+        produkterContainer.innerHTML = "<p>Handlekurven er tom.</p>";
+      } else {
+        handlekurv.forEach((produkt) => {
+          const div = document.createElement("div");
+          div.className = "produkt";
+          div.innerHTML = `
+            <h2>${produkt.navn}</h2>
+            <p>Pris: ${produkt.pris} kr</p>
+            <p>Antall: ${produkt.antall}</p>
+            <div id="paypal-container-${produkt.id.replace(/\s/g, "")}"></div>
+          `;
+          produkterContainer.appendChild(div);
+
+          const knappId = paypalKnappIds[produkt.id];
+          if (knappId) {
+            paypal
+              .HostedButtons({ hostedButtonId: knappId })
+              .render(`#paypal-container-${produkt.id.replace(/\s/g, "")}`);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
