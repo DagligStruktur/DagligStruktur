@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="no">
   <head>
     <meta charset="UTF-8" />
@@ -122,14 +122,6 @@
         display: block;
       }
 
-      .slide video {
-        width: 100%;
-        height: auto;
-        max-height: 500px;
-        object-fit: contain;
-        display: block;
-      }
-
       .pil {
         position: absolute;
         top: 50%;
@@ -178,6 +170,13 @@
         background-color: #ccc;
         cursor: not-allowed;
       }
+
+      video.slide {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+      }
     </style>
   </head>
   <body>
@@ -202,8 +201,15 @@
 
         <div class="slides">
           <img src="bilder/Studieplanlegger.png" class="slide aktiv" />
-          <img src="bilder/Pc studieplanlegger.png" class="slide aktiv" />
-          <video class="slide" autoplay loop muted>
+          <img src="bilder/Pc studieplanlegger.png" class="slide" />
+          <video
+            class="slide"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="auto"
+          >
             <source src="bilder/Video studieplanlegger.mp4" type="video/mp4" />
             Nettleseren din støtter ikke video.
           </video>
