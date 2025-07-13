@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DinStruktur – Bli mer organisert</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        background: #f9f9f9;
+        color: #ffe0f3;
+        text-shadow: 0.5px 0.5px 0.5px #000000;
+      }
+
+      header {
+        background: #ffe0f3;
+        color: white;
+        text-shadow: 2px 2px 4px #000000;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        flex-wrap: wrap;
+      }
+
+      .logo a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin-left: 1.5rem;
+        font-weight: 600;
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          background-color: #ffe0f3;
+          width: 100%;
+          text-align: center;
+          padding: 1rem 0;
+        }
+
+        .nav-links a {
+          margin: 0.7rem 0;
+          display: block;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+      }
+
+      main {
+        max-width: 1100px;
+        margin: auto;
+        padding: 2rem;
+      }
+
+      .intro {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .intro h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .intro p {
+        font-size: 1.1rem;
+        color: #444;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .image-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.2rem;
+        margin: 4rem 0;
+      }
+
+      .image-gallery img {
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: transform 0.2s ease;
+      }
+
+      .image-gallery img:hover {
+        transform: scale(1.03);
+      }
+
+      .section-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .category-preview {
+        background: white;
+        border-radius: 14px;
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+        transition: transform 0.2s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .category-preview:hover {
+        transform: translateY(-5px);
+      }
+
+      .category-preview img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 0.75rem;
+      }
+
+      .category-preview h2 {
+        margin: 0.5rem 0;
+        font-size: 1.3rem;
+      }
+
+      .category-preview p {
+        font-size: 0.95rem;
+        color: #555;
+        margin-bottom: 1rem;
+      }
+
+      .category-preview a {
+        display: inline-block;
+        text-align: center;
+        background-color: #ffe0f3;
+        color: white;
+        padding: 0.6rem 1.2rem;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+      }
+
+      .category-preview a:hover {
+        background-color: #ffe0f3;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+        color: #666;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html">DinStruktur</a>
+      </div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Startmeny</a>
+        <a href="produkter.html">Produkter</a>
+        <a href="handlekurv.html">Handlekurv</a>
+        <a href="om-meg.html">Om meg</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="intro">
+        <h1>Velkommen til DinStruktur</h1>
+        <p>
+          Her finner du digitale maler og verktøy for en mer organisert hverdag
+          – enten du er student, jobber, eller bare elsker system og oversikt.
+          Utforsk ulike kategorier og finn den strukturen som passer deg.
+        </p>
+      </section>
+
+      <section class="image-gallery">
+        <img src="bilder/balkislazam.jpg" />
+        <img src="bilder/last ned.jpg" />
+        <img src="bilder/studying.jpg" />
+        <img src="bilder/goodbye kiss.jpg" />
+        <img src="bilder/last ned (1).jpg" />
+        <img src="bilder/Home gym.jpg" />
+        <img src="bilder/last ned (2).jpg" />
+      </section>
+
+      <section class="section-grid">
+        <div class="category-preview">
+          <img src="bilder/Ukentlig kalender.png" />
+          <h2>Notion-maler</h2>
+          <p>
+            Effektive planleggingssystemer for studier, prosjekter, vaner og mer
+            – alt i ett workspace.
+          </p>
+          <a href="produkter.html">Utforsk Notion-maler</a>
+        </div>
+
+        <div class="category-preview">
+          <img src="bilder/Excel ark.png" />
+          <h2>Excel-maler</h2>
+          <p>
+            Budsjett, treningslogg, oversikt og analyse – struktur og regneark i
+            skjønn forening.
+          </p>
+          <a href="produkter.html">Utforsk Excel-maler</a>
+        </div>
+
+        <div class="category-preview">
+          <img src="https://via.placeholder.com/400x220.png?text=OneNote+Mal" />
+          <h2>OneNote-maler</h2>
+          <p>
+            Enkle og stilrene maler for forelesningsnotater, ukesplaner og
+            samling av idéer.
+          </p>
+          <a href="produkter.html">Utforsk OneNote-maler</a>
+        </div>
+
+        <div class="category-preview">
+          <img src="https://via.placeholder.com/400x220.png?text=Canva+Mal" />
+          <h2>Canva-maler</h2>
+          <p>
+            Visuelle designmaler til presentasjoner, innlegg og
+            innholdsplanlegging – klare til bruk.
+          </p>
+          <a href="produkter.html">Utforsk Canva-maler</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>© 2025 DinStruktur – Maler for en enklere hverdag</footer>
+
+    <script>
+      function toggleMenu() {
+        const nav = document.getElementById("navLinks");
+        nav.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
