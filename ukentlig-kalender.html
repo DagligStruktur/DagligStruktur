@@ -170,6 +170,13 @@
         background-color: #ccc;
         cursor: not-allowed;
       }
+
+      video.slide {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+      }
     </style>
   </head>
   <body>
@@ -194,9 +201,30 @@
 
         <div class="slides">
           <img src="bilder/Ukentlig kalender.png" class="slide aktiv" />
+          <img src="bilder/Ukentlig kalender-2.png" class="slide" />
         </div>
 
         <button class="pil høyre" onclick="endreSlide(1)">&#10095;</button>
+      </div>
+
+      <div>
+        <p>
+          Få full oversikt over uka med vår digitale kalender-mal i Notion!
+          Denne enkle, men effektive malen er perfekt for deg som ønsker
+          struktur i hverdagen – enten det gjelder skole, jobb eller fritid.
+        </p>
+        <p>✔️ Planlegg uke for uke med dagsoversikt og tidsblokker</p>
+        <p>✔️ Få bedre rutiner og mer tid til det som faktisk betyr noe</p>
+        <p>✔️ Bygget i Notion – 100 % redigerbar og enkel å bruke</p>
+        <p>
+          ✔️ Perfekt for elever, studenter, ansatte – og deg som elsker å ha
+          kontroll!
+        </p>
+        <p>
+          👉 Etter kjøp får du en PDF med direkte tilgang til malen og en enkel
+          veiledning. Bare trykk "Duplicate" for å legge den til i din egen
+          Notion-konto!
+        </p>
       </div>
 
       <div class="pris">Pris: 30,- NOK</div>
@@ -213,8 +241,8 @@
       const addToCartBtn = document.getElementById("addToCartBtn");
 
       const produkt = {
-        id: "ukentlig kalender",
-        navn: "Ukentlig kalender",
+        id: "studieplanlegger",
+        navn: "Studieplanlegger",
         pris: 30,
         antall: 1,
       };
